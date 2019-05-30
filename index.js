@@ -1,12 +1,14 @@
 function sumItems(array) {
   // Sum all the numbers in the array
+  sum = 0;
   for (item of array) {
     if (Array.isArray(item)) {
-
-    sumItems(item.push(array))
+      sum += sumItems(item)
+    } else {
+      sum += item
     }
   }  
-  return array.reduce((array, num) => array + num, 0)
+  return sum;
 }
 
 module.exports = sumItems;
