@@ -1,12 +1,17 @@
 function sumItems(array) {
   // Sum all the numbers in the array
-  
+  for (item of array) {
+    if (Array.isArray(item)) {
+
+    sumItems(item.push(array))
+    }
+  }  
   return array.reduce((array, num) => array + num, 0)
 }
 
 module.exports = sumItems;
 
-
+console.log(sumItems([1, 3, 3, 5, 5]))
 /*  
     expect(sumItems([25])).to.equal(25);
 
@@ -16,4 +21,4 @@ module.exports = sumItems;
 
     expect(sumItems([[[5], [[[4]]], [[3], 2]], 1, []])).to.equal(15);
 
-  */
+*/
